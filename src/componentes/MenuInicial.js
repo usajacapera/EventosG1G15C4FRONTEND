@@ -69,6 +69,9 @@ render() {
             </li>
           </ul>
         </div>
+        <div hidden={!this.state.estaLoguin}>
+          <h4 style = {{color:'white'}}>{cookies.get("usu_email")}</h4>
+        </div>
       </div>
     </nav>
   );
@@ -76,8 +79,4 @@ render() {
 }
 
 
-/*<div hidden={!this.state.estaLoguin}>
-  <h4 style = {{color:'white'}}>{cookies.get("usu_email")}</h4>
-  <Cronometro />
-</div> */
 export default MenuInicial;
