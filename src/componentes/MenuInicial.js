@@ -4,10 +4,10 @@ import 'bootstrap/js/dist/collapse'
 import 'bootstrap/js/dist/offcanvas'
 import 'bootstrap/js/dist/dropdown'
 import { Link } from 'react-router-dom'
-import {useEffect, useState} from 'react'
+//import {useEffect, useState} from 'react'
 
 import Cookies from 'universal-cookie'
-import Cronometro from './Cronometro'
+//import Cronometro from './Cronometro'
 const cookies = new Cookies();
 
 class MenuInicial extends Component {
