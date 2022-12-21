@@ -1,0 +1,42 @@
+npm install -g npm@latest		->actualizar npm, se recomienda como buena practica
+npm cache clean --force
+npx --version			->verificar si esta el package npx
+npm install -g create-react-app	->verificar que se esta instalada create-react-app
+npx create-react-app nombre-proyecto	->se crea el proyecto
+
+--------
+PLUGINS
+--------
+npm i @fortawesome/fontawesome-svg-core
+npm i @fortawesome/free-solid-svg-icons
+npm i @fortawesome/react-fontawesome
+npm i @testing-library/jest-dom
+npm i @testing-library/react
+npm i @testing-library/user-event
+
+-------------
+DEPENDENCIES
+-------------
+npm i axios
+npm i bootstrap@5.2.3
+npm i react
+npm i react-bootstrap
+npm i react-dom
+npm i react-icons
+npm i react-router-dom
+npm i react-scripts
+npm i react-select
+npm i reactstrap
+npm i universal-cookie
+npm i web-vitals
+npm i dotenv
+npm i react-dotenv
+
+----------------------------------------------------
+METODOS DE CICLO DE VIDA DE UN COMPONENTE EN REACT:
+----------------------------------------------------
+- componentDidMount -> cuando el componente se monta por primera vez
+- componentWillUnmount -> cuando el componente se deja de renderizar se desmonta
+- componentDidUpdate -> cuando el componente es modificado
+- componentDidCatch -> para el manejo de errores en el componente
+
