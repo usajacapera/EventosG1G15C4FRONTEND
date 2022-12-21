@@ -68,14 +68,16 @@ render() {
               <Link className="nav-link" onClick={()=>this.cerrarSesion()} to='/'><h4>Salir</h4></Link>
             </li>
           </ul>
-          <div hidden={!this.state.estaLoguin}>
-            <h4 style = {{color:'white'}}>{cookies.get("usu_email")}</h4>
-            <Cronometro />
-          </div>
         </div>
       </div>
     </nav>
   );
 }
 }
+
+
+{/* <div hidden={!this.state.estaLoguin}>
+            <h4 style = {{color:'white'}}>{cookies.get("usu_email")}</h4>
+            <Cronometro />
+          </div> */}
 export default MenuInicial;
