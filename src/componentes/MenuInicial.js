@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 //import {useEffect, useState} from 'react'
 
 import Cookies from 'universal-cookie'
-//import Cronometro from './Cronometro'
+import Cronometro from './Cronometro'
 const cookies = new Cookies();
 
 class MenuInicial extends Component {
@@ -71,6 +71,7 @@ render() {
         </div>
         <div hidden={!this.state.estaLoguin}>
           <h4 style = {{color:'white'}}>{cookies.get("usu_email")}</h4>
+          <Cronometro />
         </div>
       </div>
     </nav>

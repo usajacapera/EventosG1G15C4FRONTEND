@@ -1,52 +1,50 @@
-import {useEffect, useInsertionEffect, useState} from 'react'
-//import './App.css';
+function Cronometro  () {
 
-function Cronometro() {
-  const [diff, setDiff] = useState(null)
-  const [initial, setInitial] = useState(+new Date())
+  let segundos = 0
+  let minutos = 0
+  let horas = 0
+  let segundosAux = 0
+  let minutosAux = 0
+  let horasAux = 0
+  const tiempoEspera = 100 // tiempo que durara el cronometro en minutos
+  let empezar = 0
 
-  const tick = () => {
-    setDiff(new Date ( + new Date() - initial))
+  const cronometro = () => {
+    segundos++
+    if ( segundos > 59 ) { minutos++; segundos = 0 }
+    if ( minutos > 59 ) { horas++; minutos = 0 }
+    if ( horas > 24 ) { horas = 0}
+
+    if ( segundos < 10 ) { segundosAux = "0" + segundos} else { segundosAux = segundos }
+    if ( minutos < 10 ) { minutosAux = "0" + minutos } else { minutosAux = minutos }
+    if ( horas < 10 ) { horasAux = "0" + horas } else { horasAux = horas }
+    //console.log(`${horasAux}:${minutosAux}:${segundosAux}`)
+    document.getElementById("hms").innerHTML = horasAux + ":" + minutosAux + ":" + segundosAux;
   }
 
-  useEffect( () => {
-    if (initial) {
-      requestAnimationFrame(tick);
-    }
-  }, [initial]);
-
-  useEffect( () => {
-    if (diff) {
-      requestAnimationFrame(tick);
-    }
-  }, [diff])
-  
-  const stopStart = () => {
-    timeFormat(setDiff(null))
+  // Iniciando cronometro
+  const empezarCronometro = () => {
+    empezar = setInterval(()=>{
+      cronometro();
+      if(tiempoEspera === minutos){
+        clearInterval(empezar)
+      }
+    }, 1000)
   }
 
+  const reiniciarCronometro = () => {
+    clearInterval(empezar);
+    segundos = 0
+    minutos = 0
+    horas = 0
+    empezarCronometro();
+  }
 
   return (
-    <div className="App" onClick={stopStart}>
-      <h4 style = {{color:'white'}} className = "timer"   >{timeFormat(diff)}</h4>
+    <div style={{color:"white"}}>
+      <h4 id="hms">{empezarCronometro()}</h4>
     </div>
-  );
+  )
 }
 
-
-
-const timeFormat = (date) => {
-  if(!date) return "00:00:00";
-
-  let mm = date.getUTCMinutes();
-  let ss = date.getSeconds();
-  let cm = Math.round(date.getMilliseconds() / 10);
-
-  mm = mm < 10 ? "0" + mm : mm;
-  ss = ss < 10 ? "0" + ss : ss;
-  cm = cm < 10 ? "0" + cm : cm;
-
-  return `${mm}:${ss}:${cm}`;
-}
-
-export default Cronometro;
+export default Cronometro
